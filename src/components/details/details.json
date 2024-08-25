@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_details_details",
+  "info": {
+    "displayName": " Details",
+    "icon": "grid",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

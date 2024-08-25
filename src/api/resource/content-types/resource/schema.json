@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resources",
+  "info": {
+    "singularName": "resource",
+    "pluralName": "resources",
+    "displayName": "Resource",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "identifier": {
+      "type": "string",
+      "required": true,
+      "regex": "^(FAAS|FALC|FASO|FANS|FCMA|FCMB|00CT|FCPO|FMVI|00PO|FMCT|FICC|FITE|FTTE|00AP|PAS)-.*",
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "resource_type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::resource-type.resource-type",
+      "inversedBy": "resources"
+    },
+    "reservations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::reservation.reservation",
+      "mappedBy": "resource"
+    },
+    "details": {
+      "type": "component",
+      "repeatable": true,
+      "component": "details.details"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

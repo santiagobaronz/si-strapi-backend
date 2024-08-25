@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "locations",
+  "info": {
+    "singularName": "location",
+    "pluralName": "locations",
+    "displayName": "Location",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "location_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "code": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "address": {
+      "type": "string"
+    },
+    "faculty": {
+      "type": "enumeration",
+      "enum": [
+        "ASAB",
+        "Ciencias y Educación",
+        "Posgrados",
+        "Famarena",
+        "Ingeniería",
+        "Tecnológica",
+        "Biblioteca Central",
+        "PAS"
+      ]
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

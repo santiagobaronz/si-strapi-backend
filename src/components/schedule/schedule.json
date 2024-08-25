@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_schedule_schedules",
+  "info": {
+    "displayName": "Schedule",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "dayOfWeek": {
+      "type": "integer",
+      "max": 6,
+      "min": 0
+    },
+    "startTime": {
+      "type": "time",
+      "required": true
+    },
+    "endTime": {
+      "type": "time",
+      "required": true
+    }
+  }
+}

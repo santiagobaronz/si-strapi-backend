@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resource_types",
+  "info": {
+    "singularName": "resource-type",
+    "pluralName": "resource-types",
+    "displayName": "Resource Type",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "identifier": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "schedule": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schedule.schedule"
+    },
+    "resources": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::resource.resource",
+      "mappedBy": "resource_type"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

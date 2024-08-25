@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_rating_ratings",
+  "info": {
+    "displayName": "Rating",
+    "icon": "star",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "scheduleCompliance": {
+      "type": "decimal",
+      "min": 0,
+      "max": 5
+    },
+    "resourceQuality": {
+      "type": "decimal",
+      "max": 5,
+      "min": 0
+    },
+    "staffCourtesy": {
+      "type": "decimal",
+      "max": 5,
+      "min": 0
+    },
+    "total": {
+      "type": "decimal",
+      "max": 5,
+      "min": 0
+    },
+    "comments": {
+      "type": "text"
+    }
+  }
+}
