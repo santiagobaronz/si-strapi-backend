@@ -90,6 +90,15 @@
     "lastName": {
       "type": "string",
       "required": true
+    },
+    "failedAttempts": {
+      "type": "integer",
+      "default": 0,
+      "min": 0,
+      "max": 3
+    },
+    "lastAttemptAt": {
+      "type": "datetime"
     }
   }
 }
