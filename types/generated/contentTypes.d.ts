@@ -930,8 +930,11 @@ export interface ApiResourceResource extends Schema.CollectionType {
   attributes: {
     identifier: Attribute.String & Attribute.Required & Attribute.Unique;
     name: Attribute.String & Attribute.Required;
-    description: Attribute.Text;
-    photo: Attribute.Media<'images'>;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 90;
+      }>;
+    image: Attribute.Media<'images'>;
     resource_type: Attribute.Relation<
       'api::resource.resource',
       'manyToOne',
@@ -993,6 +996,11 @@ export interface ApiResourceTypeResourceType extends Schema.CollectionType {
     is_active: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<true>;
+    unit: Attribute.Relation<
+      'api::resource-type.resource-type',
+      'manyToOne',
+      'api::unit.unit'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1037,6 +1045,12 @@ export interface ApiUnitUnit extends Schema.CollectionType {
       Attribute.Required &
       Attribute.DefaultTo<true>;
     image: Attribute.Media<'images'>;
+    slug: Attribute.UID<'api::unit.unit', 'name'>;
+    resource_types: Attribute.Relation<
+      'api::unit.unit',
+      'oneToMany',
+      'api::resource-type.resource-type'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::unit.unit', 'oneToOne', 'admin::user'> &

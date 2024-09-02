@@ -23,9 +23,10 @@
       "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 90
     },
-    "photo": {
+    "image": {
       "type": "media",
       "multiple": false,
       "required": false,

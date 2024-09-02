@@ -125,9 +125,7 @@ const customAuth = async (ctx) => {
 module.exports = {
 	customAuth: async (ctx) => {
 		try {
-			console.log("en el controller")
 			const result = await customAuth(ctx)
-			console.log(result)
 			ctx.body = result;
 		} catch (err) {
 			ctx.badRequest("Get articles controller error", { moreDetails: err });

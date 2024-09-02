@@ -36,11 +36,22 @@
       "required": true
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "resource_types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::resource-type.resource-type",
+      "mappedBy": "unit"
     }
   }
 }

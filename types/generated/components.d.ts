@@ -1,5 +1,25 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ScheduleSchedule extends Schema.Component {
+  collectionName: 'components_schedule_schedules';
+  info: {
+    displayName: 'Schedule';
+    icon: 'clock';
+  };
+  attributes: {
+    dayOfWeek: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+          max: 6;
+        },
+        number
+      >;
+    startTime: Attribute.Time & Attribute.Required;
+    endTime: Attribute.Time & Attribute.Required;
+  };
+}
+
 export interface RatingRating extends Schema.Component {
   collectionName: 'components_rating_ratings';
   info: {
@@ -44,26 +64,6 @@ export interface RatingRating extends Schema.Component {
   };
 }
 
-export interface ScheduleSchedule extends Schema.Component {
-  collectionName: 'components_schedule_schedules';
-  info: {
-    displayName: 'Schedule';
-    icon: 'clock';
-  };
-  attributes: {
-    dayOfWeek: Attribute.Integer &
-      Attribute.SetMinMax<
-        {
-          min: 0;
-          max: 6;
-        },
-        number
-      >;
-    startTime: Attribute.Time & Attribute.Required;
-    endTime: Attribute.Time & Attribute.Required;
-  };
-}
-
 export interface DetailsDetails extends Schema.Component {
   collectionName: 'components_details_details';
   info: {
@@ -80,8 +80,8 @@ export interface DetailsDetails extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'rating.rating': RatingRating;
       'schedule.schedule': ScheduleSchedule;
+      'rating.rating': RatingRating;
       'details.details': DetailsDetails;
     }
   }

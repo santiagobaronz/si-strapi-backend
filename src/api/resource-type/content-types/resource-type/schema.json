@@ -40,6 +40,12 @@
       "type": "boolean",
       "default": true,
       "required": true
+    },
+    "unit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::unit.unit",
+      "inversedBy": "resource_types"
     }
   }
 }
