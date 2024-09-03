@@ -1,5 +1,18 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface DetailsDetails extends Schema.Component {
+  collectionName: 'components_details_details';
+  info: {
+    displayName: ' Details';
+    icon: 'grid';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface ScheduleSchedule extends Schema.Component {
   collectionName: 'components_schedule_schedules';
   info: {
@@ -64,25 +77,12 @@ export interface RatingRating extends Schema.Component {
   };
 }
 
-export interface DetailsDetails extends Schema.Component {
-  collectionName: 'components_details_details';
-  info: {
-    displayName: ' Details';
-    icon: 'grid';
-    description: '';
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    description: Attribute.String & Attribute.Required;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'details.details': DetailsDetails;
       'schedule.schedule': ScheduleSchedule;
       'rating.rating': RatingRating;
-      'details.details': DetailsDetails;
     }
   }
 }
